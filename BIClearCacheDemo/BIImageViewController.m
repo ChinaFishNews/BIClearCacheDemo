@@ -78,7 +78,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-#pragma mark - 清理内存
+#pragma mark - 清理缓存
 + (void)clearCache {
     // 清除磁盘缓存
     [[SDImageCache sharedImageCache] clearDiskOnCompletion:nil];
