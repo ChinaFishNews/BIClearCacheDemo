@@ -23,6 +23,7 @@
     [super viewDidLoad];
 }
 
+// 清理当前模块所有缓存
 + (void)clearCache {
     NSError *error = nil;
     NSFileManager *fileManager = [NSFileManager defaultManager];
@@ -34,6 +35,7 @@
     }
 }
 
+// 获取当前模块可清缓存的大小
 + (NSNumber *)canClearSize {
     NSLog(@"可清理缓存大小");
     float size = [BISkinViewController folderSizeAtPath:SKIN_PATH];

@@ -46,7 +46,6 @@
 }
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.imageList.count;
 }
@@ -79,6 +78,7 @@
 }
 
 #pragma mark - 清理缓存
+// 清理当前模块缓存
 + (void)clearCache {
     // 清理内存缓存
     [[SDImageCache sharedImageCache] clearMemory];
@@ -87,6 +87,7 @@
     NSLog(@"图片清除完毕");
 }
 
+// 获取当前模块可清缓存的大小
 + (NSNumber *)canClearSize {
     NSInteger tmpSize = [[SDImageCache sharedImageCache] getSize];
     float tempResult = tmpSize /(1024.f*1024.f);
