@@ -7,25 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58D73775C99B1877A0CE95F3 /* libPods-BIClearCacheDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 728341FB904AE11047FC3260 /* libPods-BIClearCacheDemo.a */; };
 		73A5B54521F1859B005D3F62 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A5B54421F1859B005D3F62 /* AppDelegate.m */; };
-		73A5B54821F1859B005D3F62 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A5B54721F1859B005D3F62 /* ViewController.m */; };
 		73A5B54B21F1859B005D3F62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73A5B54921F1859B005D3F62 /* Main.storyboard */; };
 		73A5B54D21F1859C005D3F62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73A5B54C21F1859C005D3F62 /* Assets.xcassets */; };
 		73A5B55021F1859C005D3F62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73A5B54E21F1859C005D3F62 /* LaunchScreen.storyboard */; };
 		73A5B55321F1859C005D3F62 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A5B55221F1859C005D3F62 /* main.m */; };
+		73A5B55B21F18869005D3F62 /* BISkinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A5B55A21F18869005D3F62 /* BISkinViewController.m */; };
+		73A5B55E21F1887C005D3F62 /* BIImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A5B55D21F1887C005D3F62 /* BIImageViewController.m */; };
+		73A5B56121F1888B005D3F62 /* BIAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A5B56021F1888B005D3F62 /* BIAboutViewController.m */; };
+		73A5B56321F1898E005D3F62 /* AllModuleCacheConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73A5B56221F1898E005D3F62 /* AllModuleCacheConfig.plist */; };
+		73A5B56621F18CDF005D3F62 /* BIClearCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A5B56521F18CDF005D3F62 /* BIClearCacheManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		201E7CF7F73D21D46AF6F0AE /* Pods-BIClearCacheDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BIClearCacheDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-BIClearCacheDemo/Pods-BIClearCacheDemo.release.xcconfig"; sourceTree = "<group>"; };
+		728341FB904AE11047FC3260 /* libPods-BIClearCacheDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BIClearCacheDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73A5B54021F1859B005D3F62 /* BIClearCacheDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BIClearCacheDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73A5B54321F1859B005D3F62 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		73A5B54421F1859B005D3F62 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		73A5B54621F1859B005D3F62 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		73A5B54721F1859B005D3F62 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		73A5B54A21F1859B005D3F62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		73A5B54C21F1859C005D3F62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73A5B54F21F1859C005D3F62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73A5B55121F1859C005D3F62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73A5B55221F1859C005D3F62 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		73A5B55921F18869005D3F62 /* BISkinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BISkinViewController.h; sourceTree = "<group>"; };
+		73A5B55A21F18869005D3F62 /* BISkinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BISkinViewController.m; sourceTree = "<group>"; };
+		73A5B55C21F1887C005D3F62 /* BIImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BIImageViewController.h; sourceTree = "<group>"; };
+		73A5B55D21F1887C005D3F62 /* BIImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BIImageViewController.m; sourceTree = "<group>"; };
+		73A5B55F21F1888B005D3F62 /* BIAboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BIAboutViewController.h; sourceTree = "<group>"; };
+		73A5B56021F1888B005D3F62 /* BIAboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BIAboutViewController.m; sourceTree = "<group>"; };
+		73A5B56221F1898E005D3F62 /* AllModuleCacheConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AllModuleCacheConfig.plist; sourceTree = "<group>"; };
+		73A5B56421F18CDF005D3F62 /* BIClearCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIClearCacheManager.h; sourceTree = "<group>"; };
+		73A5B56521F18CDF005D3F62 /* BIClearCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIClearCacheManager.m; sourceTree = "<group>"; };
+		A92119B2560BFAF529B6447B /* Pods-BIClearCacheDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BIClearCacheDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BIClearCacheDemo/Pods-BIClearCacheDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58D73775C99B1877A0CE95F3 /* libPods-BIClearCacheDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +60,8 @@
 			children = (
 				73A5B54221F1859B005D3F62 /* BIClearCacheDemo */,
 				73A5B54121F1859B005D3F62 /* Products */,
+				FD2A1CD68FB39CB28470F052 /* Pods */,
+				BA2A7D98C879AC700B0A3C50 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +78,15 @@
 			children = (
 				73A5B54321F1859B005D3F62 /* AppDelegate.h */,
 				73A5B54421F1859B005D3F62 /* AppDelegate.m */,
-				73A5B54621F1859B005D3F62 /* ViewController.h */,
-				73A5B54721F1859B005D3F62 /* ViewController.m */,
+				73A5B55921F18869005D3F62 /* BISkinViewController.h */,
+				73A5B55A21F18869005D3F62 /* BISkinViewController.m */,
+				73A5B55C21F1887C005D3F62 /* BIImageViewController.h */,
+				73A5B55D21F1887C005D3F62 /* BIImageViewController.m */,
+				73A5B55F21F1888B005D3F62 /* BIAboutViewController.h */,
+				73A5B56021F1888B005D3F62 /* BIAboutViewController.m */,
+				73A5B56421F18CDF005D3F62 /* BIClearCacheManager.h */,
+				73A5B56521F18CDF005D3F62 /* BIClearCacheManager.m */,
+				73A5B56221F1898E005D3F62 /* AllModuleCacheConfig.plist */,
 				73A5B54921F1859B005D3F62 /* Main.storyboard */,
 				73A5B54C21F1859C005D3F62 /* Assets.xcassets */,
 				73A5B54E21F1859C005D3F62 /* LaunchScreen.storyboard */,
@@ -71,6 +96,23 @@
 			path = BIClearCacheDemo;
 			sourceTree = "<group>";
 		};
+		BA2A7D98C879AC700B0A3C50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				728341FB904AE11047FC3260 /* libPods-BIClearCacheDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD2A1CD68FB39CB28470F052 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A92119B2560BFAF529B6447B /* Pods-BIClearCacheDemo.debug.xcconfig */,
+				201E7CF7F73D21D46AF6F0AE /* Pods-BIClearCacheDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -78,6 +120,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73A5B55621F1859C005D3F62 /* Build configuration list for PBXNativeTarget "BIClearCacheDemo" */;
 			buildPhases = (
+				6B44EF9A50D5B7284BECB605 /* [CP] Check Pods Manifest.lock */,
 				73A5B53C21F1859B005D3F62 /* Sources */,
 				73A5B53D21F1859B005D3F62 /* Frameworks */,
 				73A5B53E21F1859B005D3F62 /* Resources */,
@@ -129,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73A5B55021F1859C005D3F62 /* LaunchScreen.storyboard in Resources */,
+				73A5B56321F1898E005D3F62 /* AllModuleCacheConfig.plist in Resources */,
 				73A5B54D21F1859C005D3F62 /* Assets.xcassets in Resources */,
 				73A5B54B21F1859B005D3F62 /* Main.storyboard in Resources */,
 			);
@@ -136,14 +180,42 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6B44EF9A50D5B7284BECB605 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BIClearCacheDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		73A5B53C21F1859B005D3F62 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73A5B54821F1859B005D3F62 /* ViewController.m in Sources */,
 				73A5B55321F1859C005D3F62 /* main.m in Sources */,
+				73A5B56621F18CDF005D3F62 /* BIClearCacheManager.m in Sources */,
 				73A5B54521F1859B005D3F62 /* AppDelegate.m in Sources */,
+				73A5B55B21F18869005D3F62 /* BISkinViewController.m in Sources */,
+				73A5B56121F1888B005D3F62 /* BIAboutViewController.m in Sources */,
+				73A5B55E21F1887C005D3F62 /* BIImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +355,7 @@
 		};
 		73A5B55721F1859C005D3F62 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A92119B2560BFAF529B6447B /* Pods-BIClearCacheDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,6 +372,7 @@
 		};
 		73A5B55821F1859C005D3F62 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 201E7CF7F73D21D46AF6F0AE /* Pods-BIClearCacheDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

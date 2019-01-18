@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  BIImageViewController.h
 //  BIClearCacheDemo
 //
 //  Created by xinwen on 2019/1/18.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+NS_ASSUME_NONNULL_BEGIN
 
+@interface BIImageViewController : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END
