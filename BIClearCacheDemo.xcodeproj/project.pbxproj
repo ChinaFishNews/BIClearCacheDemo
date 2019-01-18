@@ -18,6 +18,7 @@
 		73A5B56121F1888B005D3F62 /* BIAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A5B56021F1888B005D3F62 /* BIAboutViewController.m */; };
 		73A5B56321F1898E005D3F62 /* AllModuleCacheConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73A5B56221F1898E005D3F62 /* AllModuleCacheConfig.plist */; };
 		73A5B56621F18CDF005D3F62 /* BIClearCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A5B56521F18CDF005D3F62 /* BIClearCacheManager.m */; };
+		73A5B56821F1B80D005D3F62 /* lkw.bin in Resources */ = {isa = PBXBuildFile; fileRef = 73A5B56721F1B80D005D3F62 /* lkw.bin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		73A5B56221F1898E005D3F62 /* AllModuleCacheConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AllModuleCacheConfig.plist; sourceTree = "<group>"; };
 		73A5B56421F18CDF005D3F62 /* BIClearCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIClearCacheManager.h; sourceTree = "<group>"; };
 		73A5B56521F18CDF005D3F62 /* BIClearCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIClearCacheManager.m; sourceTree = "<group>"; };
+		73A5B56721F1B80D005D3F62 /* lkw.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = lkw.bin; sourceTree = "<group>"; };
 		A92119B2560BFAF529B6447B /* Pods-BIClearCacheDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BIClearCacheDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BIClearCacheDemo/Pods-BIClearCacheDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,7 @@
 				73A5B56421F18CDF005D3F62 /* BIClearCacheManager.h */,
 				73A5B56521F18CDF005D3F62 /* BIClearCacheManager.m */,
 				73A5B56221F1898E005D3F62 /* AllModuleCacheConfig.plist */,
+				73A5B56721F1B80D005D3F62 /* lkw.bin */,
 				73A5B54921F1859B005D3F62 /* Main.storyboard */,
 				73A5B54C21F1859C005D3F62 /* Assets.xcassets */,
 				73A5B54E21F1859C005D3F62 /* LaunchScreen.storyboard */,
@@ -171,6 +174,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73A5B56821F1B80D005D3F62 /* lkw.bin in Resources */,
 				73A5B55021F1859C005D3F62 /* LaunchScreen.storyboard in Resources */,
 				73A5B56321F1898E005D3F62 /* AllModuleCacheConfig.plist in Resources */,
 				73A5B54D21F1859C005D3F62 /* Assets.xcassets in Resources */,
