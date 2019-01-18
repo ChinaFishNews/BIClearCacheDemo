@@ -25,8 +25,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-    self.title = @"清理缓存";
+    self.navigationItem.title = @"清理缓存";
     [self configTableView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self congfigDataSource];
 }
 

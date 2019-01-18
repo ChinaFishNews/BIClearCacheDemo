@@ -40,6 +40,11 @@
     [self.view addSubview:self.tableView];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 #pragma mark - UITableViewDelegate, UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -75,11 +80,9 @@
 
 #pragma mark - 清理内存
 + (void)clearCache {
-    // 清除内存缓存
-    [[SDImageCache sharedImageCache] clearMemory];
     // 清除磁盘缓存
     [[SDImageCache sharedImageCache] clearDiskOnCompletion:nil];
-    NSLog(@"BISDImageClass 清除完毕");
+    NSLog(@"图片清除完毕");
 }
 
 + (NSNumber *)canClearSize {
