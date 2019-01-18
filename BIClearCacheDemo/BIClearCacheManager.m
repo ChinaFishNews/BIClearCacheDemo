@@ -13,8 +13,8 @@
 @property (nonatomic, strong) NSString *moduleDisplayName;
 @property (nonatomic, assign) BIModuleName moduleName;
 @property (nonatomic, strong) NSString *managerClassName;
-@property (nonatomic, strong) NSArray <NSString *> *cachePath;
-
+@property (nonatomic, strong) NSArray <NSString *> *cacheDirPath;
+@property (nonatomic, strong) NSArray <NSString *> *cacheFilePath;
 @end
 
 @implementation BIClearCacheModel
@@ -26,6 +26,8 @@
 @property (nonatomic, strong) NSMutableDictionary *moduleNameAndSizeDic; // 模块名：缓存大小
 @property (nonatomic, assign) SEL clearCacheSel; // 清除缓存方法
 
+@property (nonatomic, strong) NSArray <BIClearCacheModel *> *moduleArray;
+
 @end
 
 @implementation BIClearCacheManager
@@ -35,7 +37,8 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         instanceType = [[BIClearCacheManager alloc]init];
-        [instanceType mergePlist];
+        [instanceType initPlistFile];
+        [instanceType readFromPlist];
     });
     return instanceType;
 }
@@ -148,10 +151,70 @@
     return @0;
 }
 
-#pragma mark - util method
-- (void)mergePlist
+- (void)clearCacheWithModule:(BIModuleName)module complete:(void (^)(void))complete
 {
     
+}
+
+#pragma mark - util method
+- (void)initPlistFile
+{
+    //本地没有则拷贝plist，文件到Doc目录
+    
+    //有的话，进行merge
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[self plistPath]])
+    {
+        [[NSFileManager defaultManager] copyItemAtPath:[self bundlePlistFile] toPath:[self plistPath] error:nil];
+    }
+    else
+    {
+        //Todo
+    }
+}
+
+- (void)readFromPlist
+{
+    NSArray *plistArray = [NSArray arrayWithContentsOfFile:[self plistPath]];
+    NSMutableArray *tempModuleArray = [[NSMutableArray alloc]init];
+    for (NSDictionary *plistDicItem in plistArray)
+    {
+        BIClearCacheModel *model = [[BIClearCacheModel alloc]init];
+        model.moduleDisplayName = plistDicItem[@"moduleName"];
+        model.moduleName = [plistDicItem[@"moduleID"] integerValue];
+        model.managerClassName = plistDicItem[@"className"];
+        model.cacheDirPath = plistDicItem[@"cacheDirPath"];
+        model.cacheFilePath = plistDicItem[@"cacheFilePath"];
+        
+        [tempModuleArray addObject:model];
+    }
+    _moduleArray = [NSArray arrayWithArray:tempModuleArray];
+    
+}
+
+- (NSString *)bundlePlistFile
+{
+    return [[NSBundle mainBundle]pathForResource:@"AllModuleCacheConfig" ofType:@"plist"];
+}
+
+- (NSString *)plistPath
+{
+    NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    return [docPath stringByAppendingPathComponent:@"AllModuleCacheConfig.plist"];
+}
+
+- (NSUInteger)indexOfModule:(BIModuleName)module
+{
+    NSUInteger result = 0;
+    
+    for (int i = 0; i < _moduleArray.count; i++)
+    {
+        BIClearCacheModel *model = _moduleArray[i];
+        if (model.moduleName == module) {
+            result = i;
+            break;
+        }
+    }
+    return result;
 }
 
 @end
