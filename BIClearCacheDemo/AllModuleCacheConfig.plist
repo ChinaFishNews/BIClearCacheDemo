@@ -3,6 +3,8 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>moduleID</key>
+		<string>1</string>
 		<key>moduleName</key>
 		<string>皮肤</string>
 		<key>className</key>
@@ -11,9 +13,13 @@
 		<string>clearCache</string>
 		<key>returnSizeActionName</key>
 		<string>canClearSize</string>
-		<key>CachePath</key>
+		<key>cacheDirPath</key>
 		<array>
 			<string>/Library/Cache/com.yykit.module</string>
+		</array>
+		<key>cacheFilePath</key>
+		<array>
+			<string>/Library/Cache/2.bin</string>
 			<string>/Library/Cache/1.bin</string>
 		</array>
 	</dict>
@@ -21,7 +27,7 @@
 		<key>moduleName</key>
 		<string>图片</string>
 		<key>moduleID</key>
-		<string>1</string>
+		<string>0</string>
 		<key>className</key>
 		<string>BIImageViewController</string>
 		<key>clearCacheActionName</key>

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef enum : NSUInteger {
-    BIModuleNameNone = 0,
+    BIModuleNameSDWebImage = 0,
     BIModuleNameSkin = 1,
 } BIModuleName;
 
@@ -37,6 +37,8 @@ typedef enum : NSUInteger {
 - (void)setCacheDir:(NSString *)fileDir module:(BIModuleName)module;
 
 - (NSNumber *)cacheSizeOfModule:(BIModuleName)module;
+
+- (void)clearCacheWithModule:(BIModuleName)module complete:(void (^)(void))complete;
 
 @end
 
