@@ -135,7 +135,7 @@
     });
 }
 
-#pragma mark - 根据目录删除部分缓存资源
+#pragma mark - 手动指定可删除缓存资源
 - (void)setCacheFile:(NSString *)filePath module:(BIModuleName)module
 {
     

@@ -31,7 +31,7 @@ typedef enum : NSUInteger {
 // 删除某个模块的缓存
 - (void)clearCacheWithModuleName:(NSString *)moduleName complete:(void (^)(void))complete;
 
-#pragma mark - 根据目录删除部分缓存资源
+#pragma mark - 手动指定可删除缓存资源
 - (void)setCacheFile:(NSString *)filePath module:(BIModuleName)module;
 
 - (void)setCacheDir:(NSString *)fileDir module:(BIModuleName)module;

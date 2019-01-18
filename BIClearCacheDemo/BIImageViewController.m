@@ -80,6 +80,8 @@
 
 #pragma mark - 清理缓存
 + (void)clearCache {
+    // 清理内存缓存
+    [[SDImageCache sharedImageCache] clearMemory];
     // 清除磁盘缓存
     [[SDImageCache sharedImageCache] clearDiskOnCompletion:nil];
     NSLog(@"图片清除完毕");
