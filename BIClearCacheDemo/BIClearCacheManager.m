@@ -146,17 +146,114 @@
     
 }
 
+//单位：MB
 - (NSNumber *)cacheSizeOfModule:(BIModuleName)module
 {
-    return @0;
+    BIClearCacheModel *model = _moduleArray[[self indexOfModule:module]];
+    
+    long long totalFileSize = [self totalFileSizeAtPathArray:model.cacheFilePath];
+    
+    long long totalDirSize = [self totalDirSizeAtPathArray:model.cacheDirPath];
+    
+    return @((totalFileSize + totalDirSize)/1024.0/1024.0);
 }
 
-- (void)clearCacheWithModule:(BIModuleName)module complete:(void (^)(void))complete
+- (void)clearCacheWithModule:(BIModuleName)module complete:(void (^)(void))completeBlock
 {
+    __weak BIClearCacheManager *weakself = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        BIClearCacheModel *model = self.moduleArray[[weakself indexOfModule:module]];
+    
+        //删文件和索引
+        //Todo:删索引
+        [weakself deleteFilesAtPathArray:model.cacheFilePath];
+        //删目录和索引
+        //Todo:删索引
+        [weakself deleteFilesAtPathArray:model.cacheDirPath];
+        
+        //返回主线程
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (completeBlock) {
+                completeBlock();
+            }
+        });
+    });
     
 }
 
 #pragma mark - util method
+
+- (void)deleteFilesAtPathArray:(NSArray<NSString *> *)array
+{
+    for (NSString *filePath in array)
+    {
+        [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
+    }
+}
+
+- (void)deleteDirsAtPathArray:(NSArray<NSString *> *)array
+{
+    for (NSString *dirPath in array)
+    {
+        //Todo:是否考虑递归
+        [[NSFileManager defaultManager] removeItemAtPath:dirPath error:nil];
+    }
+}
+
+- (long long)totalFileSizeAtPathArray:(NSArray<NSString *> *)array
+{
+    long long result = 0;
+    for (NSString *filePath in array)
+    {
+        long long fileSize = [self fileSizeAtPath:filePath];
+        result += fileSize;
+    }
+    return result;
+}
+
+- (long long)totalDirSizeAtPathArray:(NSArray<NSString *> *)array
+{
+    long long result = 0;
+    for (NSString *dirPath in array)
+    {
+        long long dirSize = [self folderSizeAtPath:dirPath];
+        result += dirSize;
+    }
+    return result;
+}
+
+//单位：B
+- (long long)fileSizeAtPath:(NSString *)path
+{
+    NSFileManager *fileManager=[NSFileManager defaultManager];
+    if([fileManager fileExistsAtPath:path]){
+        long long size=[fileManager attributesOfItemAtPath:path error:nil].fileSize;
+        return size;
+    }
+    return 0;
+}
+
+//单位：B
+- (long long)folderSizeAtPath:(NSString *)path
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+    cachePath = [cachePath stringByAppendingPathComponent:path];
+    long long folderSize = 0;
+    if ([fileManager fileExistsAtPath:cachePath])
+    {
+        NSArray *childerFiles = [fileManager subpathsAtPath:cachePath];
+        for (NSString *fileName in childerFiles)
+        {
+            NSString *fileAbsolutePath = [cachePath stringByAppendingPathComponent:fileName];
+            long long size = [self fileSizeAtPath:fileAbsolutePath];
+            folderSize += size;
+        }
+        return folderSize;
+    }
+    return 0;
+}
+
 - (void)initPlistFile
 {
     //本地没有则拷贝plist，文件到Doc目录
