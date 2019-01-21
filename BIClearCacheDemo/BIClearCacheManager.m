@@ -138,12 +138,40 @@
 #pragma mark - 手动指定可删除缓存资源
 - (void)setCacheFile:(NSString *)filePath module:(BIModuleName)module
 {
-    
+    BIClearCacheModel *model = _moduleArray[[self indexOfModule:module]];
+    NSArray <NSString *> *fileArray = model.cacheFilePath;
+    BOOL hasSuchFile = [fileArray containsObject:filePath];
+    if (!hasSuchFile)
+    {
+        //add file
+        NSUInteger index = [self indexOfModule:module];
+        NSMutableArray <BIClearCacheModel *> *tempArray = [NSMutableArray arrayWithArray:_moduleArray];
+        NSMutableArray <NSString *> *tempFileArray = [NSMutableArray arrayWithArray:model.cacheFilePath];
+        [tempFileArray addObject:filePath];
+        model.cacheFilePath = tempFileArray;
+        [tempArray removeObjectAtIndex:index];
+        [tempArray insertObject:model atIndex:index];
+        [self syncToDiskWithArray:tempArray];
+    }
 }
 
 - (void)setCacheDir:(NSString *)fileDir module:(BIModuleName)module
 {
-    
+    BIClearCacheModel *model = _moduleArray[[self indexOfModule:module]];
+    NSArray <NSString *> *dirArray = model.cacheDirPath;
+    BOOL hasSuchDir = [dirArray containsObject:fileDir];
+    if (!hasSuchDir)
+    {
+        //add dir
+        NSUInteger index = [self indexOfModule:module];
+        NSMutableArray <BIClearCacheModel *> *tempArray = [NSMutableArray arrayWithArray:_moduleArray];
+        NSMutableArray <NSString *> *tempDirArray = [NSMutableArray arrayWithArray:model.cacheDirPath];
+        [tempDirArray addObject:fileDir];
+        model.cacheDirPath = tempDirArray;
+        [tempArray removeObjectAtIndex:index];
+        [tempArray insertObject:model atIndex:index];
+        [self syncToDiskWithArray:tempArray];
+    }
 }
 
 //单位：MB
@@ -182,6 +210,23 @@
 }
 
 #pragma mark - util method
+
+- (void)syncToDiskWithArray:(NSArray<BIClearCacheModel *> *)array
+{
+    NSMutableArray <NSDictionary *> *tempArray = [[NSMutableArray alloc]init];
+    for (BIClearCacheModel *model in array)
+    {
+        NSMutableDictionary *modelDic = [[NSMutableDictionary alloc]init];
+        modelDic[@"moduleName"] = model.moduleDisplayName;
+        modelDic[@"moduleID"] = @(model.moduleName);
+        modelDic[@"className"] = model.managerClassName;
+        modelDic[@"cacheDirPath"] = model.cacheDirPath;
+        modelDic[@"cacheFilePath"] = model.cacheFilePath;
+        [tempArray addObject:modelDic];
+    }
+    NSError *error;
+    [tempArray writeToURL:[NSURL fileURLWithPath:[self plistPath]] error:&error];
+}
 
 - (void)deleteFilesAtPathArray:(NSArray<NSString *> *)array
 {

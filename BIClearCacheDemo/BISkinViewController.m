@@ -63,6 +63,7 @@
     if (!error) {
         NSLog(@"copy success");
         [self updateFilePath:[NSString stringWithFormat:@"已添加资源文件到%@",SKIN_PATH]];
+        [[BIClearCacheManager sharedManager] setCacheFile:destionPath module:BIModuleNameSkin];
     } else {
         NSLog(@"copy fail");
     }
@@ -71,7 +72,9 @@
 // 删除模块内所有缓存资源
 - (IBAction)deleteAllResources:(id)sender {
     [self.class clearCache];
-    
+    [[BIClearCacheManager sharedManager] clearCacheWithModule:BIModuleNameSkin complete:^{
+        self.filePathLabel.text = @"删除BIModuleNameSkin Module下的cache";
+    }];
     NSError *error = nil;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     [fileManager removeItemAtPath:SKIN_PATH error:&error];
